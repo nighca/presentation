@@ -214,7 +214,7 @@ var emitter = {
         }
 
         // listener instead of [listener]
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function') {
             this.listeners[type] = [listeners, listener];
             return;
         }
@@ -229,7 +229,7 @@ var emitter = {
         if (!listeners) return;
 
         // listener instead of [listener]
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function') {
             // use null instead of []
             if (listeners === listener) this.listeners[type] = null;
             return;
@@ -249,7 +249,7 @@ var emitter = {
             argsNum = args.length;
 
         // if only one listener
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function') {
             switch (argsNum) {
                 case 0: listeners(); break;
                 case 1: listeners(arg1); break;
@@ -293,7 +293,7 @@ var emitter = {
             return;
         }
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function') {
             this.listeners[type] = [listeners, listener];
             return;
         }
@@ -319,7 +319,7 @@ var emitter = {
 
         if (!listeners) return;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function') {
             if (listeners === listener) this.listeners[type] = null;
             return;
         }
@@ -337,7 +337,7 @@ var emitter = {
         var args = Array.prototype.slice.call(arguments, 1),
             argsNum = args.length;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function') {
             switch (argsNum) {
                 case 0: listeners(); break;
                 case 1: listeners(arg1); break;
@@ -381,7 +381,7 @@ var emitter = {
             return;
         }
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function')) {
             this.listeners[type] = [listeners, listener];
             return;
         }
@@ -409,7 +409,7 @@ var emitter = {
 
         if (!listeners) return;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function')) {
             if (
 	            listeners === listener ||
 	            (listeners._origin && listeners._origin === listener)
@@ -434,7 +434,7 @@ var emitter = {
         var args = Array.prototype.slice.call(arguments, 1),
             argsNum = args.length;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners === 'function')) {
             switch (argsNum) {
                 case 0: listeners(); break;
                 case 1: listeners(arg1); break;
@@ -490,7 +490,7 @@ var emitter = {
             return;
         }
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners.handler === 'function') {
             this.listeners[type] = [listeners, listener];
             return;
         }
@@ -516,7 +516,7 @@ var emitter = {
 
         if (!listeners) return;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners.handler === 'function') {
             // compare with "origin"
             if (listeners.origin === listener) this.listeners[type] = null;
             return;
@@ -535,7 +535,7 @@ var emitter = {
         var args = Array.prototype.slice.call(arguments, 1),
             argsNum = args.length;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners.handler === 'function') {
             switch (argsNum) {
                 // call handler
                 case 0: listeners.handler(); break;
@@ -595,7 +595,7 @@ var emitter = {
             return;
         }
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners.handler === 'function') {
             this.listeners[type] = [listeners, listener];
             return;
         }
@@ -623,7 +623,7 @@ var emitter = {
 
         if (!listeners) return;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners.handler === 'function') {
             // compare once
             if (
                 listeners.origin === listener &&
@@ -655,7 +655,7 @@ var emitter = {
         var args = Array.prototype.slice.call(arguments, 1),
             argsNum = args.length;
 
-        if (!Array.isArray(listeners)) {
+        if (typeof listeners.handler === 'function') {
             switch (argsNum) {
                 // call handler
                 case 0: listeners.handler(); break;
