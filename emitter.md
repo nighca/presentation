@@ -193,7 +193,7 @@ var emitter = {
 ```javascript
 listeners.forEach(fn);
 ```
-=
+
 ```javascript
 for (var i = 0, l = listeners.length; i < l; i++)
 	fn(listeners[i], i);
