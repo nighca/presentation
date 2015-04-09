@@ -1,4 +1,4 @@
-### 一起实现一个Event Emitter
+### Event Emitter
 
 ### v1
 
