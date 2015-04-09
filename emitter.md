@@ -199,6 +199,8 @@ for (var i = 0, l = listeners.length; i < l; i++)
 	fn(listeners[i], i);
 ```
 
+http://jsperf.com/one-item-array-vs-fn
+
 ### v6 better performance (use listener instead of [listener])
 
 ```javascript
