@@ -175,11 +175,11 @@ var emitter = {
             listeners.forEach(function (listener) {
                 // if less than 5 arguments, use "call" instead of "apply"
                 switch (argsNum) {
-                    case 0: listener.call(null); break;
-                    case 1: listener.call(null, arg1); break;
-                    case 2: listener.call(null, arg1, arg2); break;
-                    case 3: listener.call(null, arg1, arg2, arg3); break;
-                    case 4: listener.call(null, arg1, arg2, arg3, arg4); break;
+                    case 0: listener(); break;
+                    case 1: listener(arg1); break;
+                    case 2: listener(arg1, arg2); break;
+                    case 3: listener(arg1, arg2, arg3); break;
+                    case 4: listener(arg1, arg2, arg3, arg4); break;
                     default: listener.apply(null, args);
                 }
             });
@@ -251,11 +251,11 @@ var emitter = {
         // if only one listener
         if (!Array.isArray(listeners)) {
             switch (argsNum) {
-                case 0: listeners.call(null); break;
-                case 1: listeners.call(null, arg1); break;
-                case 2: listeners.call(null, arg1, arg2); break;
-                case 3: listeners.call(null, arg1, arg2, arg3); break;
-                case 4: listeners.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listeners(); break;
+                case 1: listeners(arg1); break;
+                case 2: listeners(arg1, arg2); break;
+                case 3: listeners(arg1, arg2, arg3); break;
+                case 4: listeners(arg1, arg2, arg3, arg4); break;
                 default: listeners.apply(null, args);
             }
             return;
@@ -263,11 +263,11 @@ var emitter = {
 
         listeners.forEach(function (listener) {
             switch (argsNum) {
-                case 0: listener.call(null); break;
-                case 1: listener.call(null, arg1); break;
-                case 2: listener.call(null, arg1, arg2); break;
-                case 3: listener.call(null, arg1, arg2, arg3); break;
-                case 4: listener.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listener(); break;
+                case 1: listener(arg1); break;
+                case 2: listener(arg1, arg2); break;
+                case 3: listener(arg1, arg2, arg3); break;
+                case 4: listener(arg1, arg2, arg3, arg4); break;
                 default: listener.apply(null, args);
             }
         });
@@ -339,11 +339,11 @@ var emitter = {
 
         if (!Array.isArray(listeners)) {
             switch (argsNum) {
-                case 0: listeners.call(null); break;
-                case 1: listeners.call(null, arg1); break;
-                case 2: listeners.call(null, arg1, arg2); break;
-                case 3: listeners.call(null, arg1, arg2, arg3); break;
-                case 4: listeners.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listeners(); break;
+                case 1: listeners(arg1); break;
+                case 2: listeners(arg1, arg2); break;
+                case 3: listeners(arg1, arg2, arg3); break;
+                case 4: listeners(arg1, arg2, arg3, arg4); break;
                 default: listeners.apply(null, args);
             }
             return;
@@ -351,11 +351,11 @@ var emitter = {
 
         listeners.forEach(function (listener) {
             switch (argsNum) {
-                case 0: listener.call(null); break;
-                case 1: listener.call(null, arg1); break;
-                case 2: listener.call(null, arg1, arg2); break;
-                case 3: listener.call(null, arg1, arg2, arg3); break;
-                case 4: listener.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listener(); break;
+                case 1: listener(arg1); break;
+                case 2: listener(arg1, arg2); break;
+                case 3: listener(arg1, arg2, arg3); break;
+                case 4: listener(arg1, arg2, arg3, arg4); break;
                 default: listener.apply(null, args);
             }
         });
@@ -436,11 +436,11 @@ var emitter = {
 
         if (!Array.isArray(listeners)) {
             switch (argsNum) {
-                case 0: listeners.call(null); break;
-                case 1: listeners.call(null, arg1); break;
-                case 2: listeners.call(null, arg1, arg2); break;
-                case 3: listeners.call(null, arg1, arg2, arg3); break;
-                case 4: listeners.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listeners(); break;
+                case 1: listeners(arg1); break;
+                case 2: listeners(arg1, arg2); break;
+                case 3: listeners(arg1, arg2, arg3); break;
+                case 4: listeners(arg1, arg2, arg3, arg4); break;
                 default: listeners.apply(null, args);
             }
             return;
@@ -448,11 +448,11 @@ var emitter = {
 
         listeners.forEach(function (listener) {
             switch (argsNum) {
-                case 0: listener.call(null); break;
-                case 1: listener.call(null, arg1); break;
-                case 2: listener.call(null, arg1, arg2); break;
-                case 3: listener.call(null, arg1, arg2, arg3); break;
-                case 4: listener.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listener(); break;
+                case 1: listener(arg1); break;
+                case 2: listener(arg1, arg2); break;
+                case 3: listener(arg1, arg2, arg3); break;
+                case 4: listener(arg1, arg2, arg3, arg4); break;
                 default: listener.apply(null, args);
             }
         });
@@ -538,11 +538,11 @@ var emitter = {
         if (!Array.isArray(listeners)) {
             switch (argsNum) {
                 // call handler
-                case 0: listeners.handler.call(null); break;
-                case 1: listeners.handler.call(null, arg1); break;
-                case 2: listeners.handler.call(null, arg1, arg2); break;
-                case 3: listeners.handler.call(null, arg1, arg2, arg3); break;
-                case 4: listeners.handler.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listeners.handler(); break;
+                case 1: listeners.handler(arg1); break;
+                case 2: listeners.handler(arg1, arg2); break;
+                case 3: listeners.handler(arg1, arg2, arg3); break;
+                case 4: listeners.handler(arg1, arg2, arg3, arg4); break;
                 default: listeners.handler.apply(null, args);
             }
             return;
@@ -551,11 +551,11 @@ var emitter = {
         listeners.forEach(function (listener) {
             switch (argsNum) {
                 // call handler
-                case 0: listener.handler.call(null); break;
-                case 1: listener.handler.call(null, arg1); break;
-                case 2: listener.handler.call(null, arg1, arg2); break;
-                case 3: listener.handler.call(null, arg1, arg2, arg3); break;
-                case 4: listener.handler.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listener.handler(); break;
+                case 1: listener.handler(arg1); break;
+                case 2: listener.handler(arg1, arg2); break;
+                case 3: listener.handler(arg1, arg2, arg3); break;
+                case 4: listener.handler(arg1, arg2, arg3, arg4); break;
                 default: listener.handler.apply(null, args);
             }
         });
@@ -658,11 +658,11 @@ var emitter = {
         if (!Array.isArray(listeners)) {
             switch (argsNum) {
                 // call handler
-                case 0: listeners.handler.call(null); break;
-                case 1: listeners.handler.call(null, arg1); break;
-                case 2: listeners.handler.call(null, arg1, arg2); break;
-                case 3: listeners.handler.call(null, arg1, arg2, arg3); break;
-                case 4: listeners.handler.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listeners.handler(); break;
+                case 1: listeners.handler(arg1); break;
+                case 2: listeners.handler(arg1, arg2); break;
+                case 3: listeners.handler(arg1, arg2, arg3); break;
+                case 4: listeners.handler(arg1, arg2, arg3, arg4); break;
                 default: listeners.handler.apply(null, args);
             }
             return;
@@ -671,11 +671,11 @@ var emitter = {
         listeners.forEach(function (listener) {
             switch (argsNum) {
                 // call handler
-                case 0: listener.handler.call(null); break;
-                case 1: listener.handler.call(null, arg1); break;
-                case 2: listener.handler.call(null, arg1, arg2); break;
-                case 3: listener.handler.call(null, arg1, arg2, arg3); break;
-                case 4: listener.handler.call(null, arg1, arg2, arg3, arg4); break;
+                case 0: listener.handler(); break;
+                case 1: listener.handler(arg1); break;
+                case 2: listener.handler(arg1, arg2); break;
+                case 3: listener.handler(arg1, arg2, arg3); break;
+                case 4: listener.handler(arg1, arg2, arg3, arg4); break;
                 default: listener.handler.apply(null, args);
             }
         });
