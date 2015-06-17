@@ -1,4 +1,57 @@
-### Event Emitter
+事件模型是js编程中绕不过去的概念，事件发射器(Event Emitter)则是事件模型的核心。一般它被抽象成一个类，通过实例方法提供包括事件绑定(on)、事件触发(fire)在内的基本功能。
+
+因而一个基本的Event Emitter，处理的主要逻辑在于
+
+1. 维护事件绑定的回调函数（listener）集合
+2. 在事件被触发时逐个调用对应的回调函数
+
+总的来说，这不是一个很复杂的逻辑，对于任何一个熟悉事件驱动编程的jser来说，实现起来轻而易举。可是为什么这里还是要说如何实现一个Event Emitter呢，我们先从这段示例代码开始：
+
+注：这里为代码精简:
+1. 所有的示例都是一个emitter单例，而不是一个类的形式
+2. 认为forEach、filter等与for循环挨个处理的形式效率相同，不考虑用后者替换后所节省的函数调用的开销
+
+#### v0
+
+```javascript
+var emitter = {
+    listeners: {},
+
+    on: function (type, listener) {
+        (this.listeners[type] = this.listeners[type] || []).push(listener);
+    },
+
+    off: function (type, listener) {
+        var listeners = this.listeners[type],
+            index;
+        if (listeners && listeners.length)
+            if ((index = listeners.indexOf(listener)) >= 0)
+                listeners.splice(index, 1);
+    },
+
+    fire: function (type, data) {
+        var listeners = this.listeners[type];
+        if (listeners && listeners.length)
+            listeners.forEach(function (listener) {
+                listener(data);
+            });
+    }
+};
+```
+
+细心的同学应该很容易发现，这是一份有bug的实现。bug的起因在于splice方法会改变受影响的项其后的项的下标，以下的代码可以触发这个bug：
+
+```javascript
+var fn1 = function () {
+    // fn1在被调用时解除事件绑定
+    emitter.off('hello', fn1);
+};
+emitter.on('hello', fn1);
+emitter.on('hello', fn2);
+// 触发事件时fn2不会被调用
+// 因为fn1执行的时候把自己splice了，fn2在listeners数组中的下标就由1变成2，所以fire中的forEach会直接跳过它
+emitter.fire('hello');
+```
 
 ### v1
 
